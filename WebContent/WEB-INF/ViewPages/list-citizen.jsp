@@ -163,7 +163,7 @@ th, td {
 					</c:url>
 					<c:url value="adddoseform" var="addDose">
 						<c:param name="citizenId" value="${citizen.citizenId}" />
-						<c:param name="doseNo" value="${citizen.dosesTaken}" />
+						<c:param name="doseTaken" value="${citizen.dosesTaken}" />
 					</c:url>
 					<tr>
 						<td>${citizen.citizenId}</td>

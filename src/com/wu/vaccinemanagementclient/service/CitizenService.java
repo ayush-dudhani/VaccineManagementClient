@@ -119,6 +119,37 @@ public class CitizenService {
 		restTemplate.postForObject("http://localhost:1234/api/addboosterdose", theBoosterDose, Dose.class);
 		
 	}
+
+	public Dose getFirstDoseDetailsById(long theId) {
+		// TODO Auto-generated method stub
+		ResponseEntity<ArrayList<Dose>> response = restTemplate.exchange(
+	            "http://localhost:1234/api/firstdoses",
+	            HttpMethod.GET,
+	            null,
+	            new ParameterizedTypeReference<ArrayList<Dose>>() {}
+	        );
+	       
+	        ArrayList<Dose> arrayListDose = response.getBody();
+	        for(Dose x: arrayListDose) {
+	        	if(x.getcitizenId() == theId) {
+	        		return x;
+	        	}
+	        }
+	        
+	        return null;
+	}
+
+	public Dose getSecondDoseDetailsById(long theId) {
+		// TODO Auto-generated method stub
+		ArrayList<Dose> arrayListDose = getAllSecondDose();
+		for(Dose x: arrayListDose) {
+        	if(x.getcitizenId() == theId) {
+        		return x;
+        	}
+        }
+        
+        return null;
+	}
 	
 	
 	

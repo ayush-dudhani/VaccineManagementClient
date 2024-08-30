@@ -90,7 +90,8 @@
                 </div>
                 <div class="form-group">
                     <label for="doseName">Dose Name</label>
-                    <form:input path="doseName" class="form-control" id="doseName" />
+                    <form:input path="doseName" class="form-control" id="doseName"
+                    readonly="${!(DoseDetails.doseName).equals('')}" />
                 </div>
                 <div class="form-group">
                     <label for="docName">Doctor Name</label>

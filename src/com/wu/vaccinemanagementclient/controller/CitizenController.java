@@ -81,12 +81,21 @@ public class CitizenController {
     }
     
     @GetMapping("/adddoseform")
-    public String showFirstDoseForm(@RequestParam("citizenId") long theId, @RequestParam("doseNo") int doseNo, Model theModel) {
+    public String showFirstDoseForm(@RequestParam("citizenId") long theId, @RequestParam("doseTaken") int doseTaken, Model theModel) {
     	Dose dose = new Dose();
     	dose.setcitizenId(theId);
     	Citizen cz  = citizenService.getCitizenById(theId);
+    	if(doseTaken == 0) {
+//    		nothing to do
+    	} else if( doseTaken == 1) {
+    		Dose fDose = citizenService.getFirstDoseDetailsById(theId);
+    		dose.setDoseName(fDose.getDoseName());
+    	} else if( doseTaken == 2) {
+    		Dose sDose = citizenService.getSecondDoseDetailsById(theId);
+    		dose.setDoseName(sDose.getDoseName());
+    	} 
     	theModel.addAttribute("DoseDetails", dose);
-    	 theModel.addAttribute("doseNo", doseNo);
+    	 theModel.addAttribute("doseNo", doseTaken);
     	return "dose-form";
     }
     
