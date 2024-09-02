@@ -87,6 +87,7 @@ public class CitizenController {
     	Citizen cz  = citizenService.getCitizenById(theId);
     	if(doseTaken == 0) {
 //    		nothing to do
+    		dose.setDoseName("");
     	} else if( doseTaken == 1) {
     		Dose fDose = citizenService.getFirstDoseDetailsById(theId);
     		dose.setDoseName(fDose.getDoseName());

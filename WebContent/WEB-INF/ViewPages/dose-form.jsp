@@ -60,6 +60,7 @@
             // Redirect to the specified URL after the alert is closed
             window.location.href = url;
         }
+        
     </script>
 </head>
 <body>
@@ -91,7 +92,7 @@
                 <div class="form-group">
                     <label for="doseName">Dose Name</label>
                     <form:input path="doseName" class="form-control" id="doseName"
-                    readonly="${!(DoseDetails.doseName).equals('')}" />
+                    readonly="${!(DoseDetails.doseName.equals(''))}" />
                 </div>
                 <div class="form-group">
                     <label for="docName">Doctor Name</label>
