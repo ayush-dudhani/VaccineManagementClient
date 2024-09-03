@@ -65,7 +65,17 @@ h1 {
 	margin-bottom: 1rem;
 }
 </style>
+<script>
+function getCurrentDate() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const day = String(today.getDate()).padStart(2, '0');
+   
+    return year + "-" + month + "-" + day;
+}
 
+</script>
 </head>
 <body>
 	<div class="container">
@@ -126,6 +136,7 @@ h1 {
 
 	<script>
 		document.getElementById("dosesTaken").readOnly = true;
+		document.getElementById("dob").setAttribute('max', getCurrentDate());
 	</script>
 </body>
 </html>

@@ -61,6 +61,16 @@
             window.location.href = url;
         }
         
+        // Get the current date in YYYY-MM-DD format
+        function getCurrentDate() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+            const day = String(today.getDate()).padStart(2, '0');
+           
+            return year + "-" + month + "-" + day;
+        }
+        
     </script>
 </head>
 <body>
@@ -115,7 +125,7 @@
 
     <script>
         document.getElementById('citizenIdInput').readOnly = true;
-        
+        document.getElementById('dd').setAttribute('max', getCurrentDate());
     </script>
 </body>
 </html>

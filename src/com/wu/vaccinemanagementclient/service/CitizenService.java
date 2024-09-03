@@ -129,6 +129,7 @@ public class CitizenService {
 	            new ParameterizedTypeReference<ArrayList<Dose>>() {}
 	        );
 	       
+		
 	        ArrayList<Dose> arrayListDose = response.getBody();
 	        for(Dose x: arrayListDose) {
 	        	if(x.getcitizenId() == theId) {
